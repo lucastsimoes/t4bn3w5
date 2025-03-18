@@ -32,7 +32,6 @@ function DatabaseStatus() {
         <div>
           Conexões Máximass: {data.dependencies.database.max_connections}
         </div>
-        
       </>
     );
   } else {
