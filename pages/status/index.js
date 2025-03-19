@@ -19,10 +19,9 @@ function DatabaseStatus() {
     refreshInterval: 2000,
   });
 
-  let databaseStatusInfo = 'Carregando...'
+  let databaseStatusInfo = "Carregando...";
 
   if (!isLoading && data) {
-
     databaseStatusInfo = (
       <>
         <h1>Status</h1>
@@ -35,18 +34,13 @@ function DatabaseStatus() {
         <div>
           Conexões Máximass: {data.dependencies.database.max_connections}
         </div>
-        
       </>
-
-    )
+    );
   }
 
   return (
     <>
-      <div>
-        {databaseStatusInfo}
-      </div>
+      <div>{databaseStatusInfo}</div>
     </>
-  )
-   
+  );
 }
