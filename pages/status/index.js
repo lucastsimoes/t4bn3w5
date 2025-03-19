@@ -19,8 +19,10 @@ function DatabaseStatus() {
     refreshInterval: 2000,
   });
 
+  let databaseStatusInfo = "Carregando...";
+
   if (!isLoading && data) {
-    return (
+    databaseStatusInfo = (
       <>
         <h1>Status</h1>
         <div>Atualizado em: {data.updated_at}</div>
@@ -34,7 +36,11 @@ function DatabaseStatus() {
         </div>
       </>
     );
-  } else {
-    return <div>Carregando...</div>;
   }
+
+  return (
+    <>
+      <div>{databaseStatusInfo}</div>
+    </>
+  );
 }
