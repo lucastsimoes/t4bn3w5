@@ -39,9 +39,7 @@ async function getHandler(req, res) {
     const publicErrorObject = new InternalServerError({
       cause: error,
     });
-
-    console.log("\n Erro dentro do catch do controller:");
     console.error(publicErrorObject);
-    res.status(500).json(publicErrorObject);
+    res.status(503).json(publicErrorObject);
   }
 }
