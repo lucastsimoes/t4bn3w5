@@ -19,7 +19,7 @@ function DatabaseStatus() {
     refreshInterval: 2000,
   });
 
-  let databaseStatusInfo = "Carregando...";
+  let databaseStatusInfo = "Carregando....";
 
   if (!isLoading && data) {
     databaseStatusInfo = (
