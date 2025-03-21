@@ -1,7 +1,6 @@
 import { createRouter } from "next-connect";
 import database from "infra/database.js";
 import controller from "infra/controller";
-import { InternalServerError } from "infra/errors";
 
 const router = createRouter();
 
@@ -10,7 +9,6 @@ router.get(getHandler);
 export default router.handler(controller.errorHandlers);
 
 async function getHandler(req, res) {
-  try {
     const updatedAt = new Date().toISOString();
 
     const databaseName = process.env.POSTGRES_DB;
@@ -35,11 +33,5 @@ async function getHandler(req, res) {
         },
       },
     });
-  } catch (error) {
-    const publicErrorObject = new InternalServerError({
-      cause: error,
-    });
-    console.error(publicErrorObject);
-    res.status(503).json(publicErrorObject);
-  }
+
 }
