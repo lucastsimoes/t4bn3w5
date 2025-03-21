@@ -1,7 +1,15 @@
+import { createRouter } from "next-connect";
 import database from "infra/database.js";
+import controller from "infra/controller";
 import { InternalServerError } from "infra/errors";
 
-async function status(req, res) {
+const router = createRouter();
+
+router.get(getHandler);
+
+export default router.handler(controller.errorHandlers);
+
+async function getHandler(req, res) {
   try {
     const updatedAt = new Date().toISOString();
 
@@ -37,5 +45,3 @@ async function status(req, res) {
     res.status(500).json(publicErrorObject);
   }
 }
-
-export default status;
