@@ -10,6 +10,12 @@ beforeAll(async () => {
 describe("POST /api/v1/users", () => {
   describe("Anonymous user", () => {
     test("With unique and valid data", async () => {
+
+      await database.query({
+        text: "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)",
+        values: ["filipedeschamps", "filiped@gmail.com", "senha123"]
+      })
+
       const users = await database.query('SELECT * FROM users;');
       console.log(users.rows);
 
