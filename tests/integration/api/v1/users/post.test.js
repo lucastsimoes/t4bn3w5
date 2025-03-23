@@ -53,7 +53,6 @@ describe("POST /api/v1/users", () => {
 
       expect(response1.status).toBe(201);
 
-
       const response2 = await fetch("http://localhost:3000/api/v1/users", {
         method: "POST",
         headers: {
@@ -73,8 +72,8 @@ describe("POST /api/v1/users", () => {
         name: "ValidationError",
         message: "O email informado já está sendo utilizado.",
         action: "Utilize outro email para realizar o cadastro.",
-        status_code: 400
-      })
+        status_code: 400,
+      });
     });
     test("With Duplicated username", async () => {
       const response1 = await fetch("http://localhost:3000/api/v1/users", {
@@ -90,7 +89,6 @@ describe("POST /api/v1/users", () => {
       });
 
       expect(response1.status).toBe(201);
-
 
       const response2 = await fetch("http://localhost:3000/api/v1/users", {
         method: "POST",
@@ -111,8 +109,8 @@ describe("POST /api/v1/users", () => {
         name: "ValidationError",
         message: "O username informado já está sendo utilizado.",
         action: "Utilize outro username para realizar o cadastro.",
-        status_code: 400
-      })
+        status_code: 400,
+      });
     });
   });
 });

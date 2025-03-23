@@ -38,9 +38,8 @@ export class ServiceError extends Error {
   }
 }
 
-
 export class ValidationError extends Error {
-  constructor({ cause, message,action }) {
+  constructor({ cause, message, action }) {
     super(message || "Um erro de validação ocorreu.", {
       cause,
     });
