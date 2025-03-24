@@ -3,7 +3,7 @@ import { ValidationError, NotFoundError } from "infra/errors";
 
 async function findOneByUsername(username) {
   const userFound = await runSelectQuery(username);
-  
+
   return userFound;
 
   async function runSelectQuery(username) {
@@ -30,7 +30,6 @@ async function findOneByUsername(username) {
 
     return results.rows[0];
   }
-
 }
 
 async function create(userInputValues) {
@@ -82,8 +81,6 @@ async function create(userInputValues) {
     }
   }
 
-
-
   async function runInsertQuery(userInputValues) {
     const results = await database.query({
       text: `
@@ -106,7 +103,7 @@ async function create(userInputValues) {
 
 const user = {
   create,
-  findOneByUsername
+  findOneByUsername,
 };
 
 export default user;
